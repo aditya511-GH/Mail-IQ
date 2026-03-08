@@ -1,0 +1,307 @@
+/* ─── Login Page ──────────────────────────────────────────────────────────── */
+.login-root {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-900);
+    overflow: hidden;
+    padding: 24px;
+}
+
+/* Animated background blobs */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: blobFloat 8s ease-in-out infinite;
+}
+
+.blob-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--blue);
+    top: -150px;
+    left: -150px;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--indigo);
+    bottom: -120px;
+    right: -100px;
+    animation-delay: 3s;
+}
+
+.blob-3 {
+    width: 300px;
+    height: 300px;
+    background: var(--emerald);
+    top: 40%;
+    left: 60%;
+    animation-delay: 6s;
+}
+
+@keyframes blobFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(20px, -20px) scale(1.05);
+    }
+}
+
+/* Glass card */
+.login-card {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 420px;
+    background: rgba(10, 16, 32, 0.75);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-xl);
+    padding: 40px 36px;
+    box-shadow: 0 8px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(14, 165, 233, 0.08);
+    animation: cardIn 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Brand */
+.login-brand {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.login-logo {
+    display: inline-flex;
+    margin-bottom: 14px;
+}
+
+.login-logo svg {
+    width: 52px;
+    height: 52px;
+    drop-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
+}
+
+.login-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff 30%, var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 6px;
+}
+
+.login-subtitle {
+    font-size: 13px;
+    color: var(--text-500);
+}
+
+/* Tabs */
+.login-tabs {
+    display: flex;
+    position: relative;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-md);
+    padding: 4px;
+    margin-bottom: 28px;
+    overflow: hidden;
+}
+
+.login-tab {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    color: var(--text-500);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: color 0.25s;
+    border-radius: var(--radius-sm);
+}
+
+.login-tab.active {
+    color: var(--text-100);
+}
+
+.login-tab-indicator {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    width: 50%;
+    left: 0;
+    background: linear-gradient(135deg, var(--blue), var(--indigo));
+    border-radius: calc(var(--radius-md) - 4px);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    opacity: 0.9;
+}
+
+/* Form */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 13px;
+    color: var(--text-500);
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 13px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-100);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.input-group input:focus {
+    border-color: var(--blue);
+    background: rgba(14, 165, 233, 0.06);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.12);
+}
+
+.input-group input::placeholder {
+    color: var(--text-700);
+}
+
+/* OTP */
+.otp-hint {
+    font-size: 13px;
+    color: var(--text-500);
+    text-align: center;
+}
+
+.otp-hint strong {
+    color: var(--text-300);
+}
+
+.otp-inputs {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.otp-box {
+    width: 50px;
+    height: 58px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-100);
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    font-family: 'Outfit', sans-serif;
+}
+
+.otp-box:focus {
+    border-color: var(--blue);
+    background: rgba(14, 165, 233, 0.08);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+}
+
+/* Footer */
+.login-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-700);
+}
+
+/* SMS Provider Warning Banner */
+.sms-warning {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    animation: cardIn 0.3s ease;
+}
+
+.sms-warning-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.sms-warning strong {
+    display: block;
+    font-size: 13px;
+    color: #f59e0b;
+    margin-bottom: 4px;
+}
+
+.sms-warning p {
+    font-size: 12px;
+    color: var(--text-500);
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.sms-warning-link {
+    font-size: 12px;
+    color: #f59e0b;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(245, 158, 11, 0.4);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+}
+
+.sms-warning-link:hover {
+    color: #fbbf24;
+}
+
+/* Phone tab - pre-warning hint */
+.sms-hint {
+    font-size: 11px;
+    color: var(--text-700);
+    text-align: center;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+}
